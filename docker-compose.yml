@@ -1,0 +1,12 @@
+services:
+  fk-bot:
+    build: .
+    container_name: fk-bot
+    restart: unless-stopped
+    volumes:
+      - ./data:/app/data
+    env_file:
+      - .env
+    environment:
+      - TZ=Asia/Almaty
+    command: ["python", "main.py"]
